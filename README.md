@@ -1,37 +1,35 @@
-# trandformer_paper
-This is the repo for my transformer paper presentation.
-
+# Presentation on "FineWeb Datasets: Decanting the Web for Finest Text Data at Scale" by Guilherme Penedo et al., Hugging Face, NeurIPS 2024.
+Xiaotong Ma
 
 ## Background: Why FineWeb?
 
-### 🧠 The Need for High-Quality Pretraining Data
-- Large Language Models (LLMs) rely on **autoregressive Transformer architectures**, where performance heavily depends on **pretraining dataset quality and scale**.
-- Training data must be **large enough** for effective learning while **filtered well enough** to remove low-quality content.
+### 🚨 The Problem: High-Quality Data is Crucial but Scarce
+- Large Language Models (LLMs), typically built using **autoregressive Transformer architectures**, heavily depend on the **quality and scale of pretraining data**.
+- Ideally, datasets should be **large enough** to enable robust learning and **high-quality enough** to avoid degrading performance with noisy information.
 
-### 🌐 Data Sources & Challenges
-- One of the most common data sources for LLM pretraining is **Common Crawl**, a publicly available web archive.
-- However, **raw web data contains significant noise**, including:
-  - **Boilerplate text** (e.g., website templates, ads)
-  - **Gibberish content** and **spam**
-  - **Massive duplication**, leading to inefficient training
+### 🌐 Common Crawl: Opportunities & Challenges
+- A popular source for training LLMs is the **Common Crawl**, a publicly available, vast collection of web data.
+- However, raw Common Crawl data suffers from several quality issues, including:
+  - Significant amounts of **boilerplate text** (navigation menus, templates, ads, copyright notices)
+  - **Spam and nonsensical content** (SEO keyword stuffing, gibberish)
+  - **Extensive duplication**, where identical content appears repeatedly across many web pages, wasting computational resources.
 
-### 🚧 Why Filtering & Deduplication Matter
-- **Low-quality web text** negatively impacts model performance, as most downstream tasks **do not involve noisy, redundant content**.
-- **Over-filtering**, however, risks reducing dataset diversity and **removing useful information**.
-- The tradeoff between **scale** and **quality** makes pretraining dataset curation a crucial problem.
+> For example, copyright disclaimers from a news website can appear verbatim on thousands of different web pages, adding no value to model training.
 
-### 🛠 Limitations of Existing Datasets
-Several public datasets have attempted to improve LLM pretraining data, but each has drawbacks:
-- **OSCAR**: Uses a **fastText language classifier** and **line-level deduplication**, but lacks deep filtering.
-- **C4**: Applies heuristic filters (e.g., removing lines without punctuation) but **does not scale well**.
-- **The Pile**: A mix of sources but **contains redundancy** and lacks fine-grained filtering.
-- **RefinedWeb**: Uses **Trafilatura** for extraction and **MinHash deduplication**, but **could further improve filtering**.
+### 🛠️ Why Filtering & Deduplication Are Essential
+- **Low-quality web data negatively impacts model performance** since most real-world applications do not involve repetitive or meaningless content.
+- However, **excessive filtering** also poses risks—potentially **reducing dataset diversity** and unintentionally removing valuable information.
+- Balancing the trade-off between **scale and quality** makes the curation of pretraining datasets both challenging and critical.
 
-### 🚀 The FineWeb Solution
-- FineWeb introduces a **principled data curation pipeline** to produce a **15-trillion-token** high-quality dataset.
-- Key innovations:
-  - **Advanced Filtering**: Combining **heuristic rules** and **C4-like filters** to remove low-quality text.
-  - **MinHash-based Deduplication**: **Per-crawl deduplication** instead of global deduplication to **preserve dataset diversity**.
-  - **FineWeb-Edu Subset**: A **1.3T token dataset** optimized for **knowledge-intensive tasks**, significantly boosting performance on benchmarks like **MMLU & ARC**.
+### ⚠️ Limitations of Existing Datasets
+Several existing public datasets have attempted to address these issues, each with its shortcomings:
 
-**FineWeb is designed to narrow the gap between open-source and proprietary LLM pretraining datasets by making high-quality data available to the research community.**
+- **OSCAR**: Uses **fastText for language filtering and basic line-level deduplication** but lacks deep quality filtering, retaining considerable low-quality content.
+- **C4**: Employs heuristic filtering methods (e.g., removing lines without terminal punctuation) but is coarse-grained and does not easily scale to larger datasets.
+- **The Pile**: Combines multiple data sources but suffers from internal **redundancy and coarse filtering**, limiting its overall effectiveness.
+- **RefinedWeb**: Utilizes high-quality extraction (with **Trafilatura**) and **MinHash deduplication**, but its filtering strategy still has room for improvement.
+
+### 🚀 The Goal of FineWeb
+**FineWeb aims precisely at addressing these gaps** by:
+- Systematically investigating and empirically validating more effective filtering and deduplication strategies.
+- Offering openly accessible, transparent, high-quality datasets to help bridge the gap between proprietary datasets used by commercial models and datasets publicly available to the research community.

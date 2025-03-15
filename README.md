@@ -62,8 +62,6 @@ The authors developed FineWeb by incrementally refining web-data quality through
 - Authors compared models trained on standard WET-extracted data versus models trained on trafilatura-extracted WARC data, without applying additional filtering or deduplication beyond basic English-language filtering.
 - The experiment clearly showed a **significant improvement in model performance** when using trafilatura-extracted WARC data (see Fig. 1 in the paper).
 
-This established that higher-quality extraction alone substantially impacts downstream model quality.
-
 ---
 
 ### ② Base Filtering (Filtered vs. Unfiltered WARC)
@@ -84,7 +82,7 @@ This established that higher-quality extraction alone substantially impacts down
 
 #### Effect and Validation:
 - Compared models trained on base-filtered WARC data versus unfiltered data.
-- Clear performance improvement was observed (see Fig. 2), proving that even basic filtering significantly boosts data quality and downstream performance.
+- Clear performance improvement was observed, proving that even basic filtering significantly boosts data quality and downstream performance.
 
 ---
 
@@ -104,7 +102,7 @@ This established that higher-quality extraction alone substantially impacts down
   - Preserved content diversity, maintaining valuable high-quality articles and information.
 
 #### Decision and Justification:
-- Individual snapshot deduplication outperformed global deduplication in experiments, clearly improving benchmark performance (see Fig. 3 & Fig. 5).
+- Individual snapshot deduplication outperformed global deduplication in experiments, clearly improving benchmark performance.
 - Authors thus adopted individual deduplication as the final approach.
 
 ---
@@ -128,7 +126,7 @@ This established that higher-quality extraction alone substantially impacts down
 
 #### Decision and Validation:
 - Decided to adopt **all C4 filters except terminal punctuation**, balancing data quality and dataset size.
-- This resulted in improved model performance without sacrificing excessive data (see Fig. 6).
+- This resulted in improved model performance without sacrificing excessive data.
 
 ---
 
@@ -149,7 +147,7 @@ This established that higher-quality extraction alone substantially impacts down
   - **Fraction of very short lines (<30 chars) ≥ 0.67** (documents mostly consisting of fragmented or trivial content).
 
 #### Experimental Validation:
-- Individually, these filters removed ~22% of data yet significantly improved model performance (~1% improvement on aggregate benchmarks), surpassing even the C4 dataset’s performance (see Fig. 7).
+- Individually, these filters removed ~22% of data yet significantly improved model performance (~1% improvement on aggregate benchmarks), surpassing even the C4 dataset’s performance.
 
 ---
 

@@ -50,9 +50,6 @@ The authors built **FineWeb** incrementally, systematically validating each step
 - **Solution**: Extracted text directly from raw WARC files using the **trafilatura** library, producing cleaner text data.
 - **Effect**: Significant improvement in model performance compared to WET extraction (Fig. 1).
 
-> **Reference**: _Figure 1 (Paper)_  
-> ![Figure 1: Trafilatura-extracted WARC vs. WET](https://github.com/Xiaotong1120/trandformer_paper/blob/main/plots/newplot.png)
-
 ---
 
 ## ② Base Filtering (Filtered vs. Unfiltered WARC)
@@ -64,9 +61,6 @@ The authors built **FineWeb** incrementally, systematically validating each step
   - Basic quality/repetition filters from MassiveText
 - **Effect**: Provided clear performance boost compared to unfiltered WARC data (Fig. 2).
 
-> **Reference**: _Figure 2 (Paper)_  
-> ![Figure 2: Base filtering improvement](your_path_or_link_to_fig2)
-
 ---
 
 ## ③ Deduplication (Individual Snapshot vs. Global MinHash)
@@ -77,10 +71,6 @@ The authors built **FineWeb** incrementally, systematically validating each step
   - **Global deduplication** removed too much valuable (older, high-quality) content, keeping lower-quality newer data.
   - **Individual snapshot deduplication** improved performance by maintaining better data diversity and quality.
 - **Conclusion**: Chose individual snapshot deduplication approach for optimal balance (Fig. 3 and Fig. 5).
-
-> **References**: _Figure 3 & 5 (Paper)_  
-> ![Figure 3: Global minhash](your_path_or_link_to_fig3)  
-> ![Figure 5: Individual minhash improvement](your_path_or_link_to_fig5)
 
 ---
 
@@ -94,9 +84,6 @@ The authors built **FineWeb** incrementally, systematically validating each step
   - Decided **not** to apply Terminal Punctuation filter (removes ~30% data, too aggressive)
 - **Effect**: Applying selective C4 filters significantly improved benchmark performance while retaining more data (Fig. 6).
 
-> **Reference**: _Figure 6 (Paper)_  
-> ![Figure 6: Impact of C4 filters](your_path_or_link_to_fig6)
-
 ---
 
 ## ⑤ Developing Custom Heuristic Filters (Systematic Approach)
@@ -107,9 +94,6 @@ The authors built **FineWeb** incrementally, systematically validating each step
   - Fraction of duplicated line characters (threshold ≥ 0.1)
   - Fraction of very short lines (<30 chars, threshold ≥ 0.67)
 - **Effect**: These filters removed ~22% of tokens and further improved model performance, surpassing C4 performance (Fig. 7).
-
-> **Reference**: _Figure 7 (Paper)_  
-> ![Figure 7: Custom FineWeb filters](your_path_or_link_to_fig7)
 
 ---
 
@@ -125,11 +109,6 @@ Combining all the steps above, the authors constructed the final FineWeb dataset
   - Custom heuristic filters
   - Removal of personal identifiable information (emails, IP addresses)
 
-> **References**: _Figure 9 & 10 (Paper)_  
-> ![Figure 9: Stepwise improvement](your_path_or_link_to_fig9)  
-> ![Figure 10: Comparison with other datasets](your_path_or_link_to_fig10)
-
 ---
 
 This structured, step-by-step method demonstrates the authors' systematic approach to creating a highly refined, high-performing, and openly available dataset for pretraining large language models.
-

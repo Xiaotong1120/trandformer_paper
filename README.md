@@ -27,3 +27,15 @@ Several public datasets have attempted to improve LLM pretraining data, but each
 - **RefinedWeb**: Uses **Trafilatura** for extraction and **MinHash deduplication**, but **could further improve filtering**.
 
 **FineWeb is designed to narrow the gap between open-source and proprietary LLM pretraining datasets by making high-quality data available to the research community.**
+
+## Data Collection & Curation
+
+### Experience Setup
+To ensure fair and reliable comparisons when evaluating data curation methods, the authors controlled:
+
+- **Model Architecture:** Fixed (Llama, 1.71B parameters, GPT-2 tokenizer).
+- **Training Scale:** Equal tokens and steps for all variants.
+- **Randomness:** Two different seeds per variant to minimize random variation.
+- **Evaluation Benchmarks:** Selected stable and representative tasks (e.g., MMLU, ARC, HellaSwag).
+
+This setup guarantees differences in performance are due only to **data quality**, not experimental conditions.

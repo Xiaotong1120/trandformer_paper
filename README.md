@@ -38,4 +38,98 @@ To ensure fair and reliable comparisons when evaluating data curation methods, t
 - **Randomness:** Two different seeds per variant to minimize random variation.
 - **Evaluation Benchmarks:** Selected stable and representative tasks (e.g., MMLU, ARC, HellaSwag).
 
-This setup guarantees differences in performance are due only to **data quality**, not experimental conditions.
+### Step-by-Step Construction of FineWeb Dataset
+
+The authors built **FineWeb** incrementally, systematically validating each step's impact on dataset quality and model performance. Here’s the detailed breakdown of their process:
+
+---
+
+## ① Text Extraction (Trafilatura from WARC vs. WET)
+
+- **Problem**: Commonly used WET files retain boilerplate text (menus, ads, templates).
+- **Solution**: Extracted text directly from raw WARC files using the **trafilatura** library, producing cleaner text data.
+- **Effect**: Significant improvement in model performance compared to WET extraction (Fig. 1).
+
+> **Reference**: _Figure 1 (Paper)_  
+> ![Figure 1: Trafilatura-extracted WARC vs. WET](your_path_or_link_to_fig1)
+
+---
+
+## ② Base Filtering (Filtered vs. Unfiltered WARC)
+
+- **Problem**: Raw WARC-extracted text still contained noise (non-English text, adult content, short/repeated content).
+- **Solution**: Applied basic filters:
+  - URL blocklists (remove adult content)
+  - fastText English-language classification (threshold ≥0.65)
+  - Basic quality/repetition filters from MassiveText
+- **Effect**: Provided clear performance boost compared to unfiltered WARC data (Fig. 2).
+
+> **Reference**: _Figure 2 (Paper)_  
+> ![Figure 2: Base filtering improvement](your_path_or_link_to_fig2)
+
+---
+
+## ③ Deduplication (Individual Snapshot vs. Global MinHash)
+
+- **Problem**: Web data includes massive duplication, which hurts efficiency and performance.
+- **Solution tested**: Applied MinHash deduplication globally (across all crawls) vs. individually (per snapshot).
+- **Findings**:
+  - **Global deduplication** removed too much valuable (older, high-quality) content, keeping lower-quality newer data.
+  - **Individual snapshot deduplication** improved performance by maintaining better data diversity and quality.
+- **Conclusion**: Chose individual snapshot deduplication approach for optimal balance (Fig. 3 and Fig. 5).
+
+> **References**: _Figure 3 & 5 (Paper)_  
+> ![Figure 3: Global minhash](your_path_or_link_to_fig3)  
+> ![Figure 5: Individual minhash improvement](your_path_or_link_to_fig5)
+
+---
+
+## ④ Incorporating C4's Filters (Selective Application)
+
+- **Problem**: Despite previous improvements, **C4 dataset** still outperformed FineWeb on certain benchmarks (e.g., HellaSwag).
+- **Approach**: Analyzed and selectively adopted heuristic filters from C4:
+  - Short lines removal
+  - Curly brackets removal
+  - JavaScript and policy text removal
+  - Decided **not** to apply Terminal Punctuation filter (removes ~30% data, too aggressive)
+- **Effect**: Applying selective C4 filters significantly improved benchmark performance while retaining more data (Fig. 6).
+
+> **Reference**: _Figure 6 (Paper)_  
+> ![Figure 6: Impact of C4 filters](your_path_or_link_to_fig6)
+
+---
+
+## ⑤ Developing Custom Heuristic Filters (Systematic Approach)
+
+- **Problem**: Further improvement required beyond existing filters.
+- **Solution**: Systematically identified new heuristic filters by comparing statistics of known high-quality vs. low-quality data:
+  - Fraction of lines ending with punctuation (threshold ≤ 0.12)
+  - Fraction of duplicated line characters (threshold ≥ 0.1)
+  - Fraction of very short lines (<30 chars, threshold ≥ 0.67)
+- **Effect**: These filters removed ~22% of tokens and further improved model performance, surpassing C4 performance (Fig. 7).
+
+> **Reference**: _Figure 7 (Paper)_  
+> ![Figure 7: Custom FineWeb filters](your_path_or_link_to_fig7)
+
+---
+
+## 🎯 **Final Result: The FineWeb Dataset (15T tokens)**
+
+Combining all the steps above, the authors constructed the final FineWeb dataset, achieving superior performance relative to existing open datasets (RefinedWeb, C4, Dolma, The Pile, SlimPajama, etc.). Each step contributed incrementally to improved quality and benchmark results (Fig. 9 and Fig. 10).
+
+- **Final Steps Applied**:
+  - WARC text extraction (trafilatura)
+  - Base filtering
+  - Individual snapshot deduplication (MinHash)
+  - Selected C4 filters
+  - Custom heuristic filters
+  - Removal of personal identifiable information (emails, IP addresses)
+
+> **References**: _Figure 9 & 10 (Paper)_  
+> ![Figure 9: Stepwise improvement](your_path_or_link_to_fig9)  
+> ![Figure 10: Comparison with other datasets](your_path_or_link_to_fig10)
+
+---
+
+This structured, step-by-step method demonstrates the authors' systematic approach to creating a highly refined, high-performing, and openly available dataset for pretraining large language models.
+

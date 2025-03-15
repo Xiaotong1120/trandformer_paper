@@ -39,7 +39,7 @@ To ensure fair and reliable comparisons when evaluating data curation methods, t
 - **Randomness:** Two different seeds per variant to minimize random variation.
 - **Evaluation Benchmarks:** Selected stable and representative tasks (e.g., MMLU, ARC, HellaSwag).
 
-### Step-by-Step Construction of FineWeb (Detailed Version)
+### Step-by-Step Construction of FineWeb
 
 The authors developed FineWeb by incrementally refining web-data quality through careful experiments. Each step of the pipeline improved model performance on benchmarks, showing the importance of rigorous data curation.
 

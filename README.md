@@ -42,8 +42,9 @@ To ensure fair and reliable comparisons when evaluating data curation methods, t
 
 The authors built **FineWeb** incrementally, systematically validating each step's impact on dataset quality and model performance. Here’s the detailed breakdown of their process:
 
----
 resources: https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1
+---
+
 ## ① Text Extraction (Trafilatura from WARC vs. WET)
 
 - **Problem**: Commonly used WET files retain boilerplate text (menus, ads, templates).

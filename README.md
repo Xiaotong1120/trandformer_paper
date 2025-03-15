@@ -1,6 +1,5 @@
-# trandformer_paper
-This is the repo for my transformer paper presentation.
-
+# Presentation on "FineWeb Datasets: Decanting the Web for Finest Text Data at Scale" by Guilherme Penedo et al., Hugging Face, NeurIPS 2024.
+Xiaotong Ma
 
 ## Background: Why FineWeb?
 

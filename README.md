@@ -51,7 +51,7 @@ The authors built **FineWeb** incrementally, systematically validating each step
 - **Effect**: Significant improvement in model performance compared to WET extraction (Fig. 1).
 
 > **Reference**: _Figure 1 (Paper)_  
-> ![Figure 1: Trafilatura-extracted WARC vs. WET](your_path_or_link_to_fig1)
+> ![Figure 1: Trafilatura-extracted WARC vs. WET](https://github.com/Xiaotong1120/trandformer_paper/blob/main/plots/newplot.png)
 
 ---
 

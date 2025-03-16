@@ -287,20 +287,12 @@ This analysis highlights the impact of dataset filtering choices on social biase
 
 ---
 
-### 🔗 Additional Resource Links
+## Additional Resource Links
 - [FineWeb Blogpost and Demo (Hugging Face)](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1)
 - [Trafilatura Library](https://github.com/adbar/trafilatura)
 - [MinHash Deduplication (RefinedWeb)](https://github.com/huggingface/refinedweb)
 - [C4 Dataset](https://huggingface.co/datasets/allenai/c4)
 - [MassiveText Dataset and Methodology](https://github.com/bigscience-workshop/data_tooling)
 
-### 📖 Citation for Paper
-```bibtex
-@misc{penedo2024fineweb,
-    title={FineWeb Datasets: Decanting the Web for Finest Text Data at Scale},
-    author={Guilherme Penedo et al.},
-    year={2024},
-    publisher={Hugging Face},
-    note={NeurIPS 2024}
-}
-```
+## Citation for Paper
+Penedo G, Kydlíček H, allal LB, et al. The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale. Published online 2024. doi:10.48550/arxiv.2406.17557

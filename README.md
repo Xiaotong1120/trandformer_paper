@@ -266,3 +266,21 @@ This clearly illustrates how the educational classifier shaped FineWeb-Edu towar
 - FineWeb-Edu proves synthetic annotation can achieve high-quality filtering at scale, making it practical for the wider research community to replicate.
 - Sets a new benchmark for openly accessible, specialized datasets, potentially driving future directions in dataset construction, model training, and research prioritization within educationally-oriented LLM applications.
 
+## Bias Analyses in FineWeb and FineWeb-Edu
+
+### Background
+Language models commonly reflect biases present in their training datasets, especially biases toward historically sensitive or protected social subgroups.
+
+### Findings (FineWeb)
+- Contains moderate biases reflective of broader internet text, with relative overrepresentation of words linked to mainstream cultural norms (e.g., `'man'`, `'christian'`).
+- Most noticeable biases involved associations between religious groups and intimacy-related topics (e.g., `'christian dating'`, `'jewish singles'`).
+
+### Findings (FineWeb-Edu)
+- Shows less biased associations, more relevant to educational contexts (e.g., historical associations such as `'man–king'`, biological/health contexts like `'woman–pregnancy'`).
+- Reduces intimacy-based stereotypical associations, focusing instead on educational, historical, and health-related topics.
+
+### Additional Results
+- FineWeb-Edu achieves impressive results on knowledge-intensive benchmarks like MMLU (33.6% accuracy at just 38B tokens, significantly better than other large-scale datasets like Matrix).
+- Domain coverage analyses indicate FineWeb-Edu effectively specializes in educational, programming, academic, and Wikipedia-related content, while FineWeb covers general web topics more broadly.
+
+This analysis highlights the impact of dataset filtering choices on social biases and thematic content, emphasizing the importance of responsible and systematic dataset construction.

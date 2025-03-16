@@ -151,12 +151,4 @@ The authors developed FineWeb by incrementally refining web-data quality through
 
 ---
 
-### **Final FineWeb Dataset (Combined Impact)**
-
-- Each of these carefully validated steps incrementally improved FineWeb’s quality and benchmark performance.
-- The final **15-trillion-token FineWeb** dataset combined all above methods (WARC extraction, base filtering, individual MinHash, selected C4 filters, custom heuristic filters), resulting in superior performance compared to major existing open datasets (RefinedWeb, C4, Dolma, The Pile, SlimPajama, etc.).
-- FineWeb demonstrates the significant value in rigorous data curation and filtering to enhance large language model training.
-
----
-
 This deeper explanation clearly communicates the rationale, approach, experiments, and results of each step, providing listeners with a full understanding of how FineWeb was methodically developed and optimized.

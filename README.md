@@ -60,7 +60,7 @@ The authors developed FineWeb by incrementally refining web-data quality through
 
 #### Effect and Validation:
 - Authors compared models trained on standard WET-extracted data versus models trained on trafilatura-extracted WARC data, without applying additional filtering or deduplication beyond basic English-language filtering.
-- The experiment clearly showed a **significant improvement in model performance** when using trafilatura-extracted WARC data (see Fig. 1 in the paper).
+- The experiment clearly showed a **significant improvement in model performance** when using trafilatura-extracted WARC data.
 
 ---
 

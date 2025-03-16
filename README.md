@@ -345,7 +345,7 @@ While **FineWeb** and **FineWeb-Edu** represent significant advancements in data
 
 ---
 
-### **Other Noteworthy Concerns (briefly mentioned)**
+### **Other Noteworthy Concerns**
 
 #### **English-centric Data Construction**
 - The pipeline primarily supports English-language content, limiting its applicability and relevance to multilingual or global contexts.

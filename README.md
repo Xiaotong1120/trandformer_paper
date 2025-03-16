@@ -284,3 +284,23 @@ Language models commonly reflect biases present in their training datasets, espe
 - Domain coverage analyses indicate FineWeb-Edu effectively specializes in educational, programming, academic, and Wikipedia-related content, while FineWeb covers general web topics more broadly.
 
 This analysis highlights the impact of dataset filtering choices on social biases and thematic content, emphasizing the importance of responsible and systematic dataset construction.
+
+---
+
+### 🔗 Additional Resource Links
+- [FineWeb Blogpost and Demo (Hugging Face)](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1)
+- [Trafilatura Library](https://github.com/adbar/trafilatura)
+- [MinHash Deduplication (RefinedWeb)](https://github.com/huggingface/refinedweb)
+- [C4 Dataset](https://huggingface.co/datasets/allenai/c4)
+- [MassiveText Dataset and Methodology](https://github.com/bigscience-workshop/data_tooling)
+
+### 📖 Citation for Paper
+```bibtex
+@misc{penedo2024fineweb,
+    title={FineWeb Datasets: Decanting the Web for Finest Text Data at Scale},
+    author={Guilherme Penedo et al.},
+    year={2024},
+    publisher={Hugging Face},
+    note={NeurIPS 2024}
+}
+```

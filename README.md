@@ -2,6 +2,9 @@
 Xiaotong Ma  
 resources: https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1
 
+## What is FineWeb?
+FineWeb is a large-scale, high-quality open dataset curated from Common Crawl through systematic filtering, deduplication, and heuristic selection, designed to bridge the gap between open-source and proprietary LLM pretraining data.
+
 ## Background: Why FineWeb?
 
 ### The Need for High-Quality Pretraining Data
